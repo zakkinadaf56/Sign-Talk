@@ -16,7 +16,8 @@ imgSize=300
 
 folder="data/C"
 counter=0
-labels=["A","B","C","D","E","F","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","G","H","1","3","4","5","7","8","10"]
+# labels=["A","B","C","D","E","F","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","G","H","1","3","4","5","7","8","10"]
+labels=["ip","location","music","news","switchwindow","voldown","volup","weather","heart","end"]
 
 while True:
     success,img=cam.read()
@@ -52,8 +53,8 @@ while True:
             prediction,index=classifier.getPrediction(imgWhite,draw=False)
 
 
-        cv.rectangle(imgOutput,(x-offset,y-offset-50),(x-offset+90,y-offset-50+50),(255,0,255),cv.FILLED)
-        cv.putText(imgOutput,labels[index],(x,y-25),cv.FONT_HERSHEY_COMPLEX,1.7,(255,255,255),2)
+        # cv.rectangle(imgOutput,(x-offset,y-offset-50),(x-offset+90,y-offset-50+50),(255,0,255),cv.FILLED)
+        cv.putText(imgOutput,labels[index],(x,y-25),cv.FONT_HERSHEY_COMPLEX,1.7,(255,0,255),2)
         cv.rectangle(imgOutput,(x-offset,y-offset),(x+w+offset,y+h+offset),(255,0,255),4)
 
         cv.imshow("cropped",imgCrop)
